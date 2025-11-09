@@ -6,6 +6,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Azahar is a 3DS emulator based on Citra, supporting multiple platforms (Windows, macOS, Linux, Android) and frontends (Qt GUI, SDL2 CLI). The codebase is written in C++20 and uses CMake for building.
 
+## ⚠️ CRITICAL: Never Modify External Dependencies
+
+**DO NOT modify any files in the `externals/` directory!**
+
+- `externals/` contains third-party dependencies managed as git submodules
+- These are **separate repositories** that you do not own
+- Modifying files in `externals/` will attempt to commit/push to external repos you don't have access to
+- Configuration files (e.g., `.vscode/settings.json`) may exist in submodules - **ignore them**
+
+**If you need to configure build settings:**
+- Modify files in the **main azahar repository only**
+- Use CMake configuration in the root `CMakeLists.txt` or `CMakeModules/`
+- Update `.vscode/settings.json` at the **root level only**, never in submodules
+
+**Valid modification locations:**
+- ✅ `src/` - Azahar source code
+- ✅ `CMakeLists.txt` and `CMakeModules/` - Build configuration
+- ✅ `.vscode/` at root - VSCode workspace settings
+- ✅ `agent-plans/`, `agent-tmp/`, `docs/` - Documentation and planning
+- ✅ `.github/`, `hooks/`, `tools/` - Project infrastructure
+- ❌ **NEVER `externals/` or any subdirectories within it**
+
 ## Build Commands
 
 ### Desktop (Windows/Linux/macOS)

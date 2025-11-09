@@ -18,6 +18,28 @@ Azahar is a Nintendo 3DS emulator forked from Citra. It's a complex C++ project 
 - **`src/tests/`**: Unit and integration tests
 - **`externals/`**: Third-party dependencies (boost, fmt, cryptopp, etc.)
 
+### ⚠️ CRITICAL: Never Modify External Dependencies
+
+**DO NOT modify any files in the `externals/` directory!**
+
+- `externals/` contains third-party dependencies managed as git submodules
+- These are **separate repositories** that you do not own
+- Modifying files in `externals/` will attempt to commit/push to external repos you don't have access to
+- Configuration files (e.g., `.vscode/settings.json`) may exist in submodules - **ignore them**
+
+**If you need to configure build settings:**
+- Modify files in the **main azahar repository only**
+- Use CMake configuration in the root `CMakeLists.txt` or `CMakeModules/`
+- Update `.vscode/settings.json` at the **root level only**, never in submodules
+
+**Valid modification locations:**
+- ✅ `src/` - Azahar source code
+- ✅ `CMakeLists.txt` and `CMakeModules/` - Build configuration
+- ✅ `.vscode/` at root - VSCode workspace settings
+- ✅ `agent-plans/`, `agent-tmp/`, `docs/` - Documentation and planning
+- ✅ `.github/`, `hooks/`, `tools/` - Project infrastructure
+- ❌ **NEVER `externals/` or any subdirectories within it**
+
 ### Documentation & Agent Directories
 - **`docs/`**: Persistent project documentation (architecture, guides, research notes)
   - Use for long-term, version-controlled documentation
