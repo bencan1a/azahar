@@ -1,5 +1,21 @@
 # Task 1: Configure VSCode for ARM64 Qt
 
+## ⚠️ CRITICAL WARNING FOR AGENTS
+
+**ONLY modify the root-level `.vscode/settings.json` file:**
+```
+c:\Users\benca\OneDrive\git_repos\azahar\.vscode\settings.json
+```
+
+**NEVER touch files in `externals/` - these are git submodules (external repositories you don't own)!**
+
+If you attempt to modify files in `externals/`, you will try to commit to repositories like:
+- `facebook/zstd`
+- `cryptopp-cmake`
+- Other external dependencies
+
+This will fail because you don't have permission to push to those repos.
+
 ## Objective
 
 Update VSCode workspace settings to use Qt 6.10.0 ARM64 binaries instead of x64 binaries.
@@ -70,7 +86,14 @@ ls c:/Qt/6.10.0/msvc2022_arm64/bin/windeployqt6.exe
 
 ### Step 2: Update VSCode Settings
 
-**Action:** Edit `.vscode/settings.json`
+**⚠️ CRITICAL:** Only modify the **ROOT-LEVEL** settings file at:
+```
+c:\Users\benca\OneDrive\git_repos\azahar\.vscode\settings.json
+```
+
+**DO NOT touch any files in `externals/` - those are git submodules you don't own!**
+
+**Action:** Edit `.vscode/settings.json` (at repository root)
 
 **Changes to make:**
 1. Replace all instances of `msvc2022_64` with `msvc2022_arm64`
@@ -154,10 +177,16 @@ To revert to x64 configuration:
 
 ## Notes for Agent Execution
 
+**⚠️ CRITICAL - READ FIRST:**
+- **ONLY modify** `c:\Users\benca\OneDrive\git_repos\azahar\.vscode\settings.json` (the root-level file)
+- **NEVER touch** any files in `externals/` directory - these are git submodules (external repos)
+- **DO NOT** create or modify any `.vscode/settings.json` files in subdirectories
+- **DO NOT** search for or enumerate all settings.json files - only work with the root one
+
 **Tools to use:**
-- `Read` tool to check current settings
-- `Edit` tool to update the paths (replace `msvc2022_64` with `msvc2022_arm64`)
+- `Read` tool to check current settings at ROOT `.vscode/settings.json`
+- `Edit` tool to update the paths (replace `msvc2022_64` with `msvc2022_arm64`) in ROOT file only
 - `Bash` tool to verify Qt ARM64 installation
-- `Read` tool again to verify the changes
+- `Read` tool again to verify the changes in ROOT file only
 
 **Expected execution time:** ~5 minutes
