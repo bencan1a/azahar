@@ -53,3 +53,6 @@ repo/
 .ccache/
 node_modules/
 VULKAN_SDK/
+
+# Agent temporary files (ephemeral debug scripts and prototypes)
+agent-tmp/

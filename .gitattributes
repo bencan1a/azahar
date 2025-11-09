@@ -1,4 +1,173 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.cpp text eol=lf
+*.h text eol=lf linguist-language=cpp
+*.c text eol=lf
+*.hpp text eol=lf
+*.cc text eol=lf
+*.cxx text eol=lf
+*.mm text eol=lf
+*.m text eol=lf
+
+# Headers
+*.inc text eol=lf
+*.def text eol=lf
+
+# Shaders
+*.vert text eol=lf
+*.frag text eol=lf
+*.geom text eol=lf
+*.comp text eol=lf
+*.glsl text eol=lf
+*.hlsl text eol=lf
+*.metal text eol=lf
+
+# CMake
+*.cmake text eol=lf
+CMakeLists.txt text eol=lf
+
+# Scripts
+*.sh text eol=lf
+*.bash text eol=lf
+*.py text eol=lf
+*.pl text eol=lf
+*.rb text eol=lf
+
+# Windows scripts
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Configuration files
+*.json text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.conf text eol=lf
+
+# Java/Kotlin (Android)
+*.java text eol=lf
+*.kt text eol=lf
+*.gradle text eol=lf
+*.properties text eol=lf
+
+# Build files
+*.vcxproj text eol=crlf
+*.vcxproj.filters text eol=crlf
+*.sln text eol=crlf
+*.pbxproj text eol=lf
+*.xcworkspace text eol=lf
+
+# Documentation
+*.md text eol=lf
+*.txt text eol=lf
+*.rst text eol=lf
+Doxyfile text eol=lf
+LICENSE text eol=lf
+AUTHORS text eol=lf
+CONTRIBUTING text eol=lf
+CHANGELOG text eol=lf
+README text eol=lf
+
+# Qt files
+*.ui text eol=lf
+*.qrc text eol=lf
+*.ts text eol=lf
+
+# Graphics resources
+*.svg text eol=lf
+
+# Web
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Git
+.gitattributes text eol=lf
+.gitignore text eol=lf
+.gitmodules text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bmp binary
+*.tga binary
+*.dds binary
+*.ktx binary
+
+# 3DS specific
+*.bin binary
+*.cia binary
+*.3ds binary
+*.3dsx binary
+*.cci binary
+*.cxi binary
+*.app binary
+*.elf binary
+*.axf binary
+*.firm binary
+
+# Archives
+*.zip binary
+*.7z binary
+*.tar binary
+*.gz binary
+*.bz2 binary
+*.xz binary
+*.rar binary
+
+# Libraries
+*.a binary
+*.lib binary
+*.so binary
+*.dll binary
+*.dylib binary
+*.framework binary
+
+# Audio
+*.wav binary
+*.mp3 binary
+*.ogg binary
+*.aac binary
+*.opus binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# Documents
+*.pdf binary
+*.doc binary
+*.docx binary
+
+# Compiled
+*.o binary
+*.obj binary
+*.pch binary
+*.gch binary
+*.pyc binary
+*.class binary
+
+# Linguist - mark generated files
+src/citra_qt/configuration/configure_input.cpp linguist-generated=true
+src/citra_qt/ui_*.h linguist-generated=true
+src/citra_qt/qrc_*.cpp linguist-generated=true
+**/moc_*.cpp linguist-generated=true
+
+# Linguist - documentation
+*.md linguist-documentation
+
+# Linguist - vendored dependencies
 dist/languages/* linguist-vendored
 dist/qt_themes/* linguist-vendored
 externals/* linguist-vendored
-*.h linguist-language=cpp
